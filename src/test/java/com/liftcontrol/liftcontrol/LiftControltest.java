@@ -43,6 +43,14 @@ public class LiftControltest {
         assertEquals(LiftControl.CONTROL.DOWN,lift.getCurrentStatus());
     }
 
-
+    @Test
+    public void testNotOverWeightFrom5to5() {
+        LiftControl lift = new LiftControl(1000,10);
+        lift.setWeight(500);
+        lift.setFromFloor(5);
+        lift.setToFloor(5);
+        lift.operate();
+        assertEquals(LiftControl.CONTROL.STOP,lift.getCurrentStatus());
+    }
 
 }
