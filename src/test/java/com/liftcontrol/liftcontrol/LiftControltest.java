@@ -2,13 +2,21 @@ package com.liftcontrol.liftcontrol;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+
 public class LiftControltest {
     @Test
-    public void calculateSum() {
-        assertEquals(expectedResult,actualResult);
-        SomeBusinessImpl business = new SomeBusinessImpl();
-        int actualResult = business.calculateSum(new int[] {1,2,3});
-        int expectedResult = 6;
+    public void testOverWeight() {
+        LiftControl lift = new LiftControl(1000,10);
+
+    }
+
+    @Test
+    public void testNotOverWeight() {
+        LiftControl lift = new LiftControl(1000,10);
+        lift.setWeight(1001);
+        lift.operate();
+        assertEquals(LiftControl.CONTROL.STOP,lift.getCurrentStatus());
     }
 
 }

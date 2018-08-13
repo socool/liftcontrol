@@ -4,8 +4,9 @@ public class LiftControl {
     private Integer MAX_WEIGHT;
     private Integer MAX_FLOOR;
     private Integer weight;
-    private Integer floor;
-    private enum CONTROL { DOWN,STOP,UP}
+    private Integer fromFloor;
+    private Integer toFloor;
+    public enum CONTROL { DOWN,STOP,UP}
     private CONTROL liftControlStatus;
 
     public LiftControl(Integer maxWeight, Integer maxFloor){
@@ -21,12 +22,20 @@ public class LiftControl {
         this.weight = weight;
     }
 
-    public Integer getFloor() {
-        return floor;
+    public Integer getToFloor() {
+        return toFloor;
     }
 
-    public void setFloor(Integer floor) {
-        this.floor = floor;
+    public void setToFloor(Integer toFloor) {
+        this.toFloor = toFloor;
+    }
+
+    public Integer getFromFloor() {
+        return fromFloor;
+    }
+
+    public void setFromFloor(Integer floor) {
+        this.fromFloor = floor;
     }
 
     public void controlUp(){
@@ -39,5 +48,15 @@ public class LiftControl {
 
     public void controlStop(){
         this.liftControlStatus = CONTROL.STOP;
+    }
+
+    public CONTROL getCurrentStatus(){
+        return this.liftControlStatus;
+    }
+
+    public void operate(){
+        if(this.getWeight() > this.MAX_WEIGHT){
+            this.controlStop();
+        }
     }
 }
