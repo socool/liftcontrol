@@ -78,6 +78,8 @@ public class LiftControl {
         }else{
             if(this.getFromFloor() < this.getToFloor()){
                 this.controlUp();
+            }else if(this.getFromFloor() > this.getToFloor()) {
+                this.controlDown();
             }
         }
     }
