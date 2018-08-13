@@ -27,7 +27,9 @@ public class LiftControl {
     }
 
     public String getFromFloorName() {
-        if(this.getFromFloor() == 0)
+        if(this.getFromFloor() == null)
+            return "N/A";
+        else if(this.getFromFloor() == 0)
             return "G";
         else if(this.getFromFloor() == MAX_FLOOR)
             return "TOP";
@@ -36,7 +38,9 @@ public class LiftControl {
     }
 
     public String getToFloorName() {
-        if(this.getToFloor() == 0)
+        if(this.getToFloor() == null)
+            return "N/A";
+        else if(this.getToFloor() == 0)
             return "G";
         else if(this.getToFloor() == MAX_FLOOR)
             return "TOP";
@@ -84,5 +88,6 @@ public class LiftControl {
                 this.controlStop();
             }
         }
+        System.out.println("Lift move:"+this.getCurrentStatus()+ " from:"+this.getFromFloorName()+" to:"+this.getToFloorName());
     }
 }
