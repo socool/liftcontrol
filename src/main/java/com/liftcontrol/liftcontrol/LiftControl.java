@@ -26,6 +26,24 @@ public class LiftControl {
         return toFloor;
     }
 
+    public String getFromFloorName() {
+        if(this.getFromFloor() == 0)
+            return "G";
+        else if(this.getFromFloor() == MAX_FLOOR)
+            return "TOP";
+        else
+            return String.valueOf(this.getFromFloor());
+    }
+
+    public String getToFloorName() {
+        if(this.getToFloor() == 0)
+            return "G";
+        else if(this.getToFloor() == MAX_FLOOR)
+            return "TOP";
+        else
+            return String.valueOf(this.getToFloor());
+    }
+
     public void setToFloor(Integer toFloor) {
         this.toFloor = toFloor;
     }
@@ -57,6 +75,10 @@ public class LiftControl {
     public void operate(){
         if(this.getWeight() > this.MAX_WEIGHT){
             this.controlStop();
+        }else{
+            if(this.getFromFloor() < this.getToFloor()){
+                this.controlUp();
+            }
         }
     }
 }
