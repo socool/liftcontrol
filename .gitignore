@@ -1,5 +1,12 @@
 /target/
 !.mvn/wrapper/maven-wrapper.jar
+.gradle
+/build/
+/bin/com/mojito/user/*
+!gradle/wrapper/gradle-wrapper.jar
+.attach_pid*
+.mvn/*
+target/*
 
 ### STS ###
 .apt_generated
@@ -15,6 +22,7 @@
 *.iws
 *.iml
 *.ipr
+/out/
 
 ### NetBeans ###
 /nbproject/private/
@@ -23,3 +31,9 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+
+### VisualStudio Code ###
+.vscode
+
+### Mac OS ###
+.DS_Store
